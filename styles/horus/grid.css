@@ -1,0 +1,129 @@
+/*** GRID Module ***/
+/* Grids */
+.wrapper {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+[class*="col-"] {
+  float: left;
+  display: block;
+  margin: 0 2% 0 0;
+}
+
+[class*="col-"] img {
+  max-width: 100%;
+  height: auto;
+}
+
+[class*="col-"]:last-child {
+    margin: 0;
+}
+
+.col-1 {
+  width: 6.5%;
+}
+
+.col-2 {
+  width: 15%;
+}
+
+.col-3 {
+  width: 23.5%;
+}
+
+.col-4 {
+  width: 32%;
+}
+
+.col-5 {
+  width: 40.5%;
+}
+
+.col-6 {
+  width: 49%;
+}
+
+.col-7 {
+  width: 57.5%;
+}
+
+.col-8 {
+  width: 66%;
+}
+
+.col-9 {
+  width: 74.5%;
+}
+
+.col-10 {
+  width: 83%;
+}
+
+.col-11 {
+  width: 91.5%;
+}
+
+.col-12 {
+  width: 100%;
+  margin: 0;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr,
+  caption {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+}
+
+.row {
+  margin-bottom: 1.42em;
+}
+
+/* Clear and Fixes */
+.wrapper:after {
+  content: "";
+  display: table;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.clearfix:before,
+.row:before,
+.clearfix:after,
+.row:after {
+  content: "";
+  display: table;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix:after,
+.row:after {
+  font-size: 0;
+  clear: both;
+}
