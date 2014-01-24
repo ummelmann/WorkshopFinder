@@ -43,9 +43,6 @@
   <!-- Leaflet.js Library -->
   <script src="scripts/leaflet.js"></script>
 
-  <!-- jquery.js Library -->
-  <script src="scripts/jquery.js"></script>
-
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 
   <!--[if lt IE 9]>
