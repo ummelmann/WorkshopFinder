@@ -113,22 +113,50 @@
              </div>
              
              <div class="col-4">
-                         
+                  <script type="text/javascript">
+					navigator.geolocation.getCurrentPosition(GetLocation);
+					
+					function GetLocation(location) {
+						document.form.lat.value = location.coords.latitude;
+						document.form.lon.value = location.coords.longitude;
+						document.form.acc.value = location.coords.accuracy;
+						}
+					</script>       
                   <form>
-
                     <fieldset>
-
-                      <legend>Login</legend>
-                    
-                      <label for="user">username 
-                        <input type="text" name="user" id="user">
+                      <legend>Add Workshop</legend>
+                   		<label for="name">Name
+                        <input type="text" name="acc" id="acc">
+                      </label>
+                      <label for="lat">Latitude 
+                        <input type="text" name="lat" id="lat" readonly>
+                      </label>
+                      <label for="lon">Longitude 
+                        <input type="text" name="lon" id="lon" readonly>
+                      </label>
+                      <label for="acc">Accuracy 
+                        <input type="text" name="acc" id="acc" readonly>
+                      </label>
+                      <label for="adresse">Adresse 
+                        <input type="text" name="adresse" id="adresse">
+                      </label>
+                      <label for="tel">Telefonnummer 
+                        <input type="text" name="tel" id="tel">
+                      </label>
+                      <label for="web">Website 
+                        <input type="text" name="web" id="web">
+                      </label>
+                      <label for="email">eMail 
+                        <input type="text" name="email" id="email">
+                      </label>
+                      <label for="adresse">Adresse 
+                        <input type="text" name="adresse" id="adresse">
+                      </label>
+                      <label for="open">Öffnungszeiten 
+                      <textarea name="open" id="open" rows="3"></textarea>
                       </label>
 
-                      <label for="pass">password 
-                        <input type="password" name="pass" id="pass">
-                      </label>
-
-                      <button type="login">login</button> <button type="reset">Clear</button><button type="create">create account</button>
+                      <button type="submit">Submit</button> <button type="reset">Clear</button>
  
                   </fieldset>
 
