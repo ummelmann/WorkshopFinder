@@ -1,131 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     
-  <title>WorkshopFinder - a Bike-Workshop-Search</title>
+    <title>WorkshopFinder - a Bike-Workshop-Search</title>
     
-  <!--======= Basic Metas =======-->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--======= Basic Metas =======-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="A bike workshop searchengine" content="">
-  <meta name="keywords" content="">
-  <meta name="author" content="">
+    <meta name="A bike workshop searchengine" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
-  <!--======= Mobile Metas =======-->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+    <!--======= Mobile Metas =======-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
     
-	<!--======= Favicons =======-->
+    <!--======= Favicons =======-->
     
-  <!-- website favicon -->
-  <link rel="shortcut icon" href="img/favicon.png">
-  <!-- iPhone, iPod Touch -->
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <!-- iPhone with Retina display -->
-  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
-  <!-- iPad first and second generation -->
-  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-  <!-- iPad with Retina display -->
-  <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">    
+    <!-- website favicon -->
+    <link rel="shortcut icon" href="img/favicon.png">
+    <!-- iPhone, iPod Touch -->
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <!-- iPhone with Retina display -->
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <!-- iPad first and second generation -->
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <!-- iPad with Retina display -->
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">    
     
-  <!--======= CSS =======-->
+    <!--======= CSS =======-->
     
-  <!-- CSSHórus Library -->
-  <link rel="stylesheet" type="text/css" href="styles/horus.css">
-  <!-- Leflet Library -->
-  <link rel="stylesheet" type="text/css" href="styles/leaflet.css">
-  <!-- Skin Styles -->
-  <link rel="stylesheet" type="text/css" href="styles/skin/default/style.css">
+    <!-- CSSHórus Library -->
+    <link rel="stylesheet" type="text/css" href="styles/horus.css">
+    <!-- Leflet Library -->
+    <link rel="stylesheet" type="text/css" href="styles/leaflet.css">
+    <!-- Skin Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/skin/default/style.css">
+    <!-- Tab Tab Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/tab-tab.css" />
 
-  <!--======= JavaScript =======-->
+    <!--======= JavaScript =======-->
 
-  <!-- Leaflet.js Library -->
-  <script src="scripts/leaflet.js"></script>
+    <!-- Leaflet.js Library -->
+    <script src="scripts/leaflet.js"></script>
 
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <!-- jquery.js Library -->
+    <script src="scripts/jquery.js"></script>
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
-  <![endif]-->
+    <!-- flexie.js Library -->
+    <script src="scripts/flexie.js"></script>
 
-</head>
+    <!-- jquery.tab-tab.js Library -->
+    <script src="scripts/jquery.tab-tab.js"></script>
 
-<body>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
+    <![endif]-->
 
-	<div class="wrapper">
+  </head>
+
+  <body>
+
+    <div class="wrapper">
     
-		<header class="row">
-			<h1 class="m20-top">WorkshopFinder - a bike workshop search</h1>
-			<p>Version 0.1</p>
-      <hr>
-		</header>
+      <header class="row">
+        <h1 class="m20-top">WorkshopFinder - a bike workshop search</h1>
+        <p>Version 0.1</p>
+        <hr>
+      </header>
  
-        <section class="row" id="intro">
-          <h2>Versuch eines lightweight, responsive, mobile friendly, fucking good, Designs...</h2>   
-          <hr>    
-        </section>    
+      <section class="row" id="intro">
+        <h2>Versuch eines lightweight, responsive, mobile friendly, fucking good, Designs...</h2>   
+        <hr>    
+      </section>    
            
-           <div class="row">
-             
-             <div class="col-8">
+      <div class="row">      
+        <div class="col-8">
+          <form id="searchform" class="search row">
+            <input type="text" name="s" id="s"> <button type="submit">Search</button>
+            <br>
+            <hr>
+          </form>
 
-               <form id="searchform" class="search row">
-                  <input type="text" name="s" id="s"> <button type="submit">Search</button>
-                <br>
-                <hr>
-               </form>
+          <article class="tabtab bananayellow flex">
+            <nav>
+              <ul>
+                <li><a href="#tab1">Map</a></li>
+                <li><a href="#tab2">Table</a></li>
+              </ul>
+            </nav>
 
- 
-		<div id="map" class="col-12" style="height: 300px;">Map</div> 
+            <section id="tab1">
+              <div id="map" class="col-12" style="height: 300px;">Map</div> 
+            </section>
 
-                 <table class="table striped">
-                   <caption>Workshops</caption>
-                   
-                   <thead>
-                     <tr>
-                       <th>ID</th>
-                       <th>Name</th>
-                       <th>Housenumber</th>
-                       <th>Street</th>
-                       <th>Zip</th>
-                       <th>City</th>
-                     </tr>
-                   </thead>
-                   
-                   <tbody>
-                     <tr>
-                       <td>1</td>
-                       <td>Radstation MS</td>
-                       <td>4a</td>
-                       <td>Berliner Platz</td>
-                       <td>48146</td>
-		       <td>Münster</td>
-                     </tr>                                       
-                   </tbody>
-                 
-                 </table>                    
-
-             </div>
+            <section id="tab2">
+              <table class="table striped">
+                <caption>Workshops</caption>   
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Housenumber</th>
+                    <th>Street</th>
+                    <th>Zip</th>
+                    <th>City</th>
+                  </tr>
+                </thead>   
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Radstation MS</td>
+                    <td>4a</td>
+                    <td>Berliner Platz</td>
+                    <td>48146</td>
+		    <td>Münster</td>
+                  </tr>                                       
+                </tbody>   
+              </table>                    
+            </section>
+          </article>
+        </div>
+           
+           
              
              <div class="col-4">
-                         
+                  <script type="text/javascript">
+					navigator.geolocation.getCurrentPosition(GetLocation);
+					
+					function GetLocation(location) {
+						document.form.lat.value = location.coords.latitude;
+						document.form.lon.value = location.coords.longitude;
+						document.form.acc.value = location.coords.accuracy;
+						}
+					</script>       
                   <form>
-
                     <fieldset>
-
-                      <legend>Login</legend>
-                    
-                      <label for="user">username 
-                        <input type="text" name="user" id="user">
+                      <legend>Add Workshop</legend>
+                   		<label for="name">Name
+                        <input type="text" name="acc" id="acc">
+                      </label>
+                      <label for="lat">Latitude 
+                        <input type="text" name="lat" id="lat" readonly>
+                      </label>
+                      <label for="lon">Longitude 
+                        <input type="text" name="lon" id="lon" readonly>
+                      </label>
+                      <label for="acc">Accuracy 
+                        <input type="text" name="acc" id="acc" readonly>
+                      </label>
+                      <label for="adresse">Adresse 
+                        <input type="text" name="adresse" id="adresse">
+                      </label>
+                      <label for="tel">Telefonnummer 
+                        <input type="text" name="tel" id="tel">
+                      </label>
+                      <label for="web">Website 
+                        <input type="text" name="web" id="web">
+                      </label>
+                      <label for="email">eMail 
+                        <input type="text" name="email" id="email">
+                      </label>
+                      <label for="adresse">Adresse 
+                        <input type="text" name="adresse" id="adresse">
+                      </label>
+                      <label for="open">Öffnungszeiten 
+                      <textarea name="open" id="open" rows="3"></textarea>
                       </label>
 
-                      <label for="pass">password 
-                        <input type="password" name="pass" id="pass">
-                      </label>
-
-                      <button type="login">login</button> <button type="reset">Clear</button><button type="create">create account</button>
+                      <button type="submit">Submit</button> <button type="reset">Clear</button>
  
                   </fieldset>
 
@@ -147,5 +192,6 @@
   <!--======= JS =======-->
   <!-- <script type="text/javascript" src="script.js"></script> -->
   <script src="scripts/testmap.js"></script>
+  <script src="scripts/tab.js"></script>
 </body>
 </html>
