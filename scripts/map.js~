@@ -4,7 +4,7 @@ cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery
 cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});	
 
 var mapquestUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-	mapquestAttribution = "Data CC-By-SA by <a href='http://openstreetmap.org/' target='_blank'>OpenStreetMap</a>, Tiles Group05",
+	mapquestAttribution = "Data CC-By-SA by <a href='http://openstreetmap.org/' target='_blank'>OpenStreetMap</a>, Tiles  <a href='http://open.mapquest.com' target='_blank'>MapQuest</a>",
 	mapquest = new L.TileLayer(mapquestUrl, {maxZoom: 18, attribution: mapquestAttribution, subdomains: ['1','2','3','4']});
 		
 var nexrad = new L.TileLayer.WMS("http://giv-siidemo.uni-muenster.de:8080/geoserver/wms", {

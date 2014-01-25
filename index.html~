@@ -123,10 +123,8 @@
             </section>
           </article>
         </div>
-           
-           
-             
-             <div class="col-4">
+
+        <div class="col-4">
                   <script type="text/javascript">
 					navigator.geolocation.getCurrentPosition(GetLocation);
 					
@@ -191,7 +189,7 @@
     
   <!--======= JS =======-->
   <!-- <script type="text/javascript" src="script.js"></script> -->
-  <script src="scripts/testmap.js"></script>
+  <script src="scripts/map.js"></script>
   <script src="scripts/tab.js"></script>
 </body>
 </html>
