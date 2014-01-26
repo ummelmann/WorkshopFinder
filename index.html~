@@ -66,13 +66,15 @@
     <div class="wrapper">
     
       <header class="row">
-        <h1 class="m20-top">WorkshopFinder - a bike workshop search</h1>
-        <p>Version 0.1</p>
+        <h1 class="m20-top"> <img src="img/logo.png" alt="WorkshopFinder-Logo" height="74" width="200"> 
+            WorkshopFinder - a bike workshop search
+        </h1>
+        <p>Version 0.8</p>
         <hr>
       </header>
  
       <section class="row" id="intro">
-        <h2>Versuch eines lightweight, responsive, mobile friendly, fucking good, Designs...</h2>   
+        <h2>Find your way to the next bike workshop!</h2>   
         <hr>    
       </section>    
            
@@ -93,7 +95,9 @@
             </nav>
 
             <section id="tab1">
-              <div id="map" class="col-12" style="height: 300px;">Map</div> 
+              <div class="wrapper">
+                <div id="map" class="col-12" style="height: 300px;">Map</div> 
+              </div>
             </section>
 
             <section id="tab2">
@@ -125,20 +129,11 @@
         </div>
 
         <div class="col-4">
-                  <script type="text/javascript">
-					navigator.geolocation.getCurrentPosition(GetLocation);
-					
-					function GetLocation(location) {
-						document.form.lat.value = location.coords.latitude;
-						document.form.lon.value = location.coords.longitude;
-						document.form.acc.value = location.coords.accuracy;
-						}
-					</script>       
-                  <form>
+                  <form id="new-workshop" action="submit.php" method="post" target="_blank">
                     <fieldset>
                       <legend>Add Workshop</legend>
                    		<label for="name">Name
-                        <input type="text" name="acc" id="acc">
+                        <input type="text" name="name" id="name">
                       </label>
                       <label for="lat">Latitude 
                         <input type="text" name="lat" id="lat" readonly>
@@ -160,9 +155,6 @@
                       </label>
                       <label for="email">eMail 
                         <input type="text" name="email" id="email">
-                      </label>
-                      <label for="adresse">Adresse 
-                        <input type="text" name="adresse" id="adresse">
                       </label>
                       <label for="open">Öffnungszeiten 
                       <textarea name="open" id="open" rows="3"></textarea>

@@ -1,0 +1,41 @@
+
+                  <?php
+                    $host        = "host=127.0.0.1";
+                    $port        = "port=5432";
+                    $dbname      = "dbname=group05";
+                    $credentials = "user=group05 password=Ez0SfiWTYB41zL7";
+
+                    $db = pg_connect( "$host $port $dbname $credentials"  );
+                    if(!$db){
+                      echo "Error : Unable to open database\n";
+                    }
+
+                    $sql =<<<EOF
+                      SELECT * from workshops;
+                    EOF;
+
+                    $ret = pg_query($db, $sql);
+                    if(!$ret){
+                      echo pg_last_error($db);
+                      exit;
+                    }
+ 
+                    while($row = pg_fetch_row($ret)){
+                      echo "                  <tr>\n";
+                      echo "                    <td> ". $row[0] . "</td>\n";
+                      echo "                    <td> ". $row[1] . "</td>\n";
+                      echo "                    <td> ". $row[2] . "</td>\n";
+                      echo "                    <td> ". $row[3] . "</td>\n";
+                      echo "                    <td> ". $row[4] . "</td>\n";
+                      echo "                    <td> ". $row[5] . "</td>\n";
+                      echo "                    <td> ". $row[6] . "</td>\n";
+                      echo "                    <td> ". $row[7] . "</td>\n";
+                      echo "                    <td> ". $row[8] . "</td>\n";
+                      echo "                    <td> ". $row[9] . "</td>\n";
+                      echo "                    <td> ". $row[10] . "</td>\n";
+                      echo "                    <td> ". $row[11] . "</td>\n";
+                      echo "                    <td> ". $row[12] . "</td>\n";
+                      echo "                  </tr>\n";
+                    }
+                    pg_close($db);
+                  ?>
