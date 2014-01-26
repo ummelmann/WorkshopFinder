@@ -38,7 +38,10 @@
     <!-- Skin Styles -->
     <link rel="stylesheet" type="text/css" href="styles/skin/default/style.css">
     <!-- Tab Tab Styles -->
-    <link rel="stylesheet" type="text/css" href="styles/tab-tab.css" />
+    <link rel="stylesheet" type="text/css" href="styles/tab-tab.css">
+
+    <!-- jQuery DataTables Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/jquery.dataTables.css">
 
     <!--======= JavaScript =======-->
 
@@ -53,6 +56,9 @@
 
     <!-- jquery.tab-tab.js Library -->
     <script src="scripts/jquery.tab-tab.js"></script>
+
+    <!-- jquery.dataTables.js Library -->
+    <script src="scripts/jquery.dataTables.js"></script>
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -96,13 +102,12 @@
 
             <section id="tab1">
               <div class="wrapper">
-                <div id="map" class="col-12" style="height: 300px;">Map</div> 
+                <div id="map" class="col-12" style="height: 300px;"></div> 
               </div>
             </section>
 
             <section id="tab2">
-              <table class="table striped">
-                <caption>Workshops</caption>   
+              <table id="tb_workshops">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -111,16 +116,23 @@
                     <th>Street</th>
                     <th>Zip</th>
                     <th>City</th>
+                    <th>Country</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                    <th>Website</th>
+                    <th>Opening Times</th>
+                    <th>Rating</th>
+                    <th>Coordinates</th>
                   </tr>
                 </thead>   
                 <tbody>
                   <?php
-                    $host        = "host=127.0.0.1";
-                    $port        = "port=5432";
-                    $dbname      = "dbname=group05";
+                    $host = "host=127.0.0.1";
+                    $port = "port=5432";
+                    $dbname = "dbname=group05";
                     $credentials = "user=group05 password=Ez0SfiWTYB41zL7";
 
-                    $db = pg_connect( "$host $port $dbname $credentials"  );
+                    $db = pg_connect( "$host $port $dbname $credentials" );
                     if(!$db){
                       echo "Error : Unable to open database\n";
                     }
@@ -136,24 +148,24 @@ EOF;
                     }
  
                     while($row = pg_fetch_row($ret)){
-                      echo "                  <tr>\n";
-                      echo "                    <td> ". $row[0] . "</td>\n";
-                      echo "                    <td> ". $row[1] . "</td>\n";
-                      echo "                    <td> ". $row[2] . "</td>\n";
-                      echo "                    <td> ". $row[3] . "</td>\n";
-                      echo "                    <td> ". $row[4] . "</td>\n";
-                      echo "                    <td> ". $row[5] . "</td>\n";
-                      echo "                    <td> ". $row[6] . "</td>\n";
-                      echo "                    <td> ". $row[7] . "</td>\n";
-                      echo "                    <td> ". $row[8] . "</td>\n";
-                      echo "                    <td> ". $row[9] . "</td>\n";
-                      echo "                    <td> ". $row[10] . "</td>\n";
-                      echo "                    <td> ". $row[11] . "</td>\n";
-                      echo "                    <td> ". $row[12] . "</td>\n";
-                      echo "                  </tr>\n";
+                      echo " <tr>\n";
+                      echo " <td> ". $row[0] . "</td>\n";
+                      echo " <td> ". $row[1] . "</td>\n";
+                      echo " <td> ". $row[2] . "</td>\n";
+                      echo " <td> ". $row[3] . "</td>\n";
+                      echo " <td> ". $row[4] . "</td>\n";
+                      echo " <td> ". $row[5] . "</td>\n";
+                      echo " <td> ". $row[6] . "</td>\n";
+                      echo " <td> ". $row[7] . "</td>\n";
+                      echo " <td> ". $row[8] . "</td>\n";
+                      echo " <td> ". $row[9] . "</td>\n";
+                      echo " <td> ". $row[10] . "</td>\n";
+                      echo " <td> ". $row[11] . "</td>\n";
+                      echo " <td> ". $row[12] . "</td>\n";
+                      echo " </tr>\n";
                     }
                     pg_close($db);
-                  ?>                                    
+                  ?>                           
                 </tbody>   
               </table>                    
             </section>
@@ -215,5 +227,6 @@ EOF;
   <!-- <script type="text/javascript" src="script.js"></script> -->
   <script src="scripts/map.js"></script>
   <script src="scripts/tab.js"></script>
+  <script src="scripts/table.js"></script>
 </body>
 </html>
