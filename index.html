@@ -49,7 +49,6 @@
     <script src="scripts/jquery.js"></script>
 
     <!-- flexie.js Library -->
-    <script src="scripts/flexie.js"></script>
 
     <!-- jquery.tab-tab.js Library -->
     <script src="scripts/jquery.tab-tab.js"></script>
@@ -93,7 +92,9 @@
             </nav>
 
             <section id="tab1">
-              <div id="map" class="col-12" style="height: 300px;">Map</div> 
+              <div class="wrapper">
+                <div id="map" class="col-12" style="height: 300px;">Map</div> 
+              </div>
             </section>
 
             <section id="tab2">
@@ -125,20 +126,11 @@
         </div>
 
         <div class="col-4">
-                  <script type="text/javascript">
-					navigator.geolocation.getCurrentPosition(GetLocation);
-					
-					function GetLocation(location) {
-						document.form.lat.value = location.coords.latitude;
-						document.form.lon.value = location.coords.longitude;
-						document.form.acc.value = location.coords.accuracy;
-						}
-					</script>       
-                  <form>
+                  <form id="new-workshop" action="submit.php" method="post" target="_blank">
                     <fieldset>
                       <legend>Add Workshop</legend>
                    		<label for="name">Name
-                        <input type="text" name="acc" id="acc">
+                        <input type="text" name="name" id="name">
                       </label>
                       <label for="lat">Latitude 
                         <input type="text" name="lat" id="lat" readonly>
@@ -160,9 +152,6 @@
                       </label>
                       <label for="email">eMail 
                         <input type="text" name="email" id="email">
-                      </label>
-                      <label for="adresse">Adresse 
-                        <input type="text" name="adresse" id="adresse">
                       </label>
                       <label for="open">Öffnungszeiten 
                       <textarea name="open" id="open" rows="3"></textarea>
