@@ -39,20 +39,14 @@ map.addEventListener('click', onMapClick);
 		    var HEIGHT = map.getSize().y;
 		    var X = map.layerPointToContainerPoint(e.layerPoint).x;
 		    var Y = map.layerPointToContainerPoint(e.layerPoint).y;
-		    var URL = '?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=group05ws:workshops&QUERY_LAYERS=group05ws:workshops&STYLES=&BBOX='+BBOX+'&FEATURE_COUNT=5&HEIGHT='+HEIGHT+'&WIDTH='+WIDTH+'&FORMAT=image%2Fpng&INFO_FORMAT=text%2Fhtml&SRS=EPSG%3A4326&X='+X+'&Y='+Y;
-		    $.ajax({
-		        url: "http://giv-siidemo.uni-muenster.de:8080/geoserver/wms" + URL,
-		        dataType: "html",
-		        type: "GET",
-		        //async: false,
-		        success: function(data) {
-		            if (data.indexOf("<table") != -1) {
-		                popup.setContent(data);
+        var URL = '?service=WFS&version=1.1.0&request=GetFeature&typeName=group05ws:workshops&outputFormat=json&BBOX='+BBOX+'&FEATURE_COUNT=5&HEIGHT='+HEIGHT+'&WIDTH='+WIDTH+'&FORMAT=image%2Fpng&INFO_FORMAT=text%2Fhtml&SRS=EPSG%3A4326&X='+X+'&Y='+Y;
+		    $.get("http://giv-siidemo.uni-muenster.de:8080/geoserver/ows" + URL, function(data) {
+                    feature = data.features[0]
+		                popup.setContent(feature.name);
 		                popup.setLatLng(e.latlng);
 		                map.openPopup(popup);
-		            }
 		        }
-		    });
+		    );
 
 
 		}
